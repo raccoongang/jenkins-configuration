@@ -25,7 +25,7 @@
         <hudson.model.StringParameterDefinition>
           <name>DSL_SCRIPT</name>
           <description>Path to dsl script to run, from the root of the https://github.com/edx/jenkins-job-dsl repo (i.e. sample/jobs/sampleJob.groovy)</description>
-          <defaultValue>sample/jobs/sampleJob.groovy</defaultValue>
+          <defaultValue>platform/jobs/*.groovy</defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>BRANCH</name>
@@ -39,7 +39,7 @@
     <configVersion>2</configVersion>
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
-        <url>https://github.com/edx/jenkins-job-dsl.git</url>
+        <url>https://github.com/raccoongang/jenkins-job-dsl.git</url>
       </hudson.plugins.git.UserRemoteConfig>
     </userRemoteConfigs>
     <branches>
