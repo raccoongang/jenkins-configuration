@@ -1,19 +1,23 @@
 ---
+# Github api 
 SERVER_API_URL: 'https://api.github.com'
 ACCESS_TOKEN: 'accessTokenString'
+# Add here your admin users
 ADMIN_LIST:
     - 'admin1'
     - 'admin2'
-REQUEST_TESTING_PHRASE: 'retest this PR please'
+
+# Configure phrases
+REQUEST_TESTING_PHRASE: 'retest this PR please' # This phrase trigger Jenkins for run tests 
 WHITE_LIST_PHRASE: 'add this github user'
 BLACK_LIST_LABELS:
     - 'foo'
     - 'bar'
 OK_PHRASE: 'this is OK to test'
-RETEST_PHRASE: 'please retest'
+RETEST_PHRASE: 'please retest' # This phrase trigger Jenkins for run tests 
 BLACKLIST_AUTHORS: 'badPerson1 nefarious123'
 SKIP_PHRASE: 'skip tests'
-CRON_SCHEDULE: 'H/5 * * * *'
+CRON_SCHEDULE: 'H/5 * * * *' 
 USE_COMMENTS: true
 USE_DETAILED_COMMENTS: false
 MANAGE_WEBHOOKS: false
@@ -23,7 +27,7 @@ DISPLAY_ERRORS_DOWNSTREAM: true
 GITHUB_AUTH: 'test'
 CANCEL_BUILD_ON_UPDATE: true
 SIMPLE_STATUS: 'simple status'
-PUBLISH_JENKINS_URL: 'myjenkinsinstance.com'
+PUBLISH_JENKINS_URL: 'myjenkinsinstance.com' # paste here you jenkins url
 BUILD_LOG_LINES_TO_DISPLAY: 25
 RESULT_MESSAGES:
     - STATUS: 'pending'

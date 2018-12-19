@@ -1,4 +1,6 @@
 ---
+# Setup email creds  here 
+
 SMTP_SERVER: 'localhost'
 REPLY_TO_ADDRESS: 'user@localhost'
 DEFAULT_SUFFIX: 'com'

@@ -7,6 +7,7 @@ MAIN:
     LABELS:
         - "master-node"
         - "the-master-node"
+        - "dsl-seed-runner"
     USAGE: 'EXCLUSIVE'
     QUIET_PERIOD: 10
     SCM_RETRY_COUNT: 15

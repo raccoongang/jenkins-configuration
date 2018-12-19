@@ -1,4 +1,6 @@
 ---
+# E-mail config file for massage list of users about triggered event
+
 ADV_PROPERTIES: 'C'
 DEFAULT_CONTENT_TYPE: 'text/html'
 DEFAULT_SUBJECT: 'HEY'

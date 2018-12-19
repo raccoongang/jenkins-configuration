@@ -1,4 +1,6 @@
 ---
+# default set of users 
+
 - USERNAME: "user1"
   PASSWORD: "dummy-data"
   EMAIL_ADDRESS: "user1@example.com"
