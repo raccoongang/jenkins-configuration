@@ -30,7 +30,7 @@
         <hudson.model.StringParameterDefinition>
           <name>BRANCH</name>
           <description>Branch of jenkins-job-dsl repo to use</description>
-          <defaultValue>*/master</defaultValue>
+          <defaultValue>*/raccoon/ci</defaultValue>
         </hudson.model.StringParameterDefinition>
       </parameterDefinitions>
     </hudson.model.ParametersDefinitionProperty>
@@ -39,7 +39,7 @@
     <configVersion>2</configVersion>
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
-        <url>https://github.com/raccoongang/jenkins-job-dsl.git</url>
+        <url>https://github.com/svic/jenkins-job-dsl.git</url>
       </hudson.plugins.git.UserRemoteConfig>
     </userRemoteConfigs>
     <branches>
