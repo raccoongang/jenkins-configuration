@@ -14,11 +14,11 @@ ADVANCED_CONFIGURATION:
     ENTITY_ID: 'zzz'
     MAXIMUM_SESSION_LIFETIME: 99
 # Optional. Set ENCRYPTION_DATA to {} if you do not want to use it
-ENCRYPTION_DATA:
-    KEY_STORE_PATH: 'aaa'
-    KEY_STORE_PASSWORD: 'bbb'
-    PRIVATE_KEY_PASSWORD: 'ccc'
-    PRIVATE_KEY_ALIAS: 'ddd'
+ENCRYPTION_DATA: {}
+    # KEY_STORE_PATH: 'aaa'
+    # KEY_STORE_PASSWORD: 'bbb'
+    # PRIVATE_KEY_PASSWORD: 'ccc'
+    # PRIVATE_KEY_ALIAS: 'ddd'
     FORCE_SIGN_REDIRECT_BINDING_AUTH_REQUEST: true
 # USERNAME_CASE_CONVENTION must be 'uppercase', 'lowercase' or 'none'
 USERNAME_CASE_CONVENTION: 'uppercase'
