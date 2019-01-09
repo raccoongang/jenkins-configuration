@@ -50,6 +50,7 @@ SECURITY_GROUPS:
         - 'hudson.model.View.Read'
         - 'hudson.scm.SCM.Tag'
       USERS:
+        - 'svic'
         - 'github-user1'
         - 'github-user2'
 DSL_SCRIPT_SECURITY_ENABLED: false

@@ -1,6 +1,6 @@
 ---
-- CREDENTIAL_ID: 'secretText1'
+- CREDENTIAL_ID: 'github'
   MANAGE_HOOKS: true
   USE_CUSTOM_API_URL: 'true'
-  API_URL: 'www.example.com/api'
+  API_URL: 'https://api.github.com'
   CACHE_SIZE: 30

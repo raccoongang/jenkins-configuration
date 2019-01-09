@@ -8,11 +8,11 @@ USERNAME_ATTRIBUTE: 'jkl'
 EMAIL_ATTRIBUTE: 'mno'
 LOGOUT_URL: 'https://www.example.com/logout'
 # Optional. Set ADVANCED_CONFIGURATION to {} if you do not want to use it
-ADVANCED_CONFIGURATION:
-    FORCE_AUTH: true
-    CONTEXT_CLASS_REF: 'yyy'
-    ENTITY_ID: 'zzz'
-    MAXIMUM_SESSION_LIFETIME: 99
+ADVANCED_CONFIGURATION: {}
+    # FORCE_AUTH: true
+    # CONTEXT_CLASS_REF: 'yyy'
+    # ENTITY_ID: 'zzz'
+    # MAXIMUM_SESSION_LIFETIME: 99
 # Optional. Set ENCRYPTION_DATA to {} if you do not want to use it
 ENCRYPTION_DATA: {}
     # KEY_STORE_PATH: 'aaa'

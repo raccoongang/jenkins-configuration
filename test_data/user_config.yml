@@ -1,4 +1,7 @@
 ---
+- USERNAME: "jenkins"
+  PASSWORD: "jenkins"
+  EMAIL_ADDRESS: "jenkins123@example.com"
 - USERNAME: "user1"
   PASSWORD: "dummy-data"
   EMAIL_ADDRESS: "user1@example.com"
