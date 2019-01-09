@@ -41,10 +41,10 @@ build:
 		--target=$(TEST_SHARD) .
 
 run:
-	docker run --name $(CONTAINER_NAME) -p 8080:8080 -d $(CONTAINER_NAME)
+	docker run --name $(CONTAINER_NAME) -p 80:8080 -d $(CONTAINER_NAME)
 
 run.container:
-	docker run --name $(CONTAINER_NAME) -p 8080:8080 -p 2222:22 -d $(CONTAINER_NAME)
+	docker run --name $(CONTAINER_NAME) -p 80:8080 -p 2222:22 -d $(CONTAINER_NAME)
 
 run.jenkins:
 	docker exec -d -u jenkins ${CONTAINER_NAME} /usr/bin/java -jar /usr/share/jenkins/jenkins.war --httpPort=8080 --logfile=/var/log/jenkins/jenkins.log
