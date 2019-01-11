@@ -1,0 +1,6 @@
+FROM edxraccoon/jenkins-worker
+
+#USER root 
+
+RUN service ssh start 
+CMD ["/bin/bash/"]
