@@ -98,4 +98,6 @@ COPY src/main/groovy/4configureSAML.groovy \
     $JENKINS_HOME/init.groovy.d/
 RUN chown -R jenkins:jenkins $JENKINS_HOME /var/log/jenkins
 
-CMD ["/usr/sbin/sshd", "-D"]
+USER jenkins
+
+CMD ["/usr/bin/java", "-jar", "/usr/share/jenkins/jenkins.war", "--httpPort=8080", "--logfile=/var/log/jenkins/jenkins.log"]

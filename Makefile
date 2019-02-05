@@ -40,7 +40,8 @@ build:
 		--build-arg=JENKINS_WAR_SOURCE=$(JENKINS_WAR_SOURCE) \
 		--target=$(TEST_SHARD) .
 
-run: run.container run.jenkins
+run:
+	docker run --name $(CONTAINER_NAME) -p 8080:8080 -d $(CONTAINER_NAME)
 
 run.container:
 	docker run --name $(CONTAINER_NAME) -p 8080:8080 -p 2222:22 -d $(CONTAINER_NAME)
