@@ -34,20 +34,23 @@ clean.ws:
 	./gradlew clean
 	./gradlew -b plugins.gradle clean
 
-build:
-	docker build -t $(CONTAINER_NAME) --build-arg=CONFIG_PATH=$(CONFIG_PATH) \
+build: build-master build-worker
+
+build-master:
+	docker build -f Dockerfile.master \
+		-t $(CONTAINER_NAME) --build-arg=CONFIG_PATH=$(CONFIG_PATH) \
 		--build-arg=JENKINS_VERSION=$(JENKINS_VERSION) \
 		--build-arg=JENKINS_WAR_SOURCE=$(JENKINS_WAR_SOURCE) \
 		--target=$(TEST_SHARD) .
 
+build-worker:
+	docker build -t jenkins_worker:hawthorn.master - < Dockerfile.worker
+
 run:
-	docker run --name $(CONTAINER_NAME) -p 80:8080 -d $(CONTAINER_NAME)
+	docker-compose up -d --scale hawthorn_worker=3
 
-run.container:
-	docker run --name $(CONTAINER_NAME) -p 80:8080 -p 2222:22 -d $(CONTAINER_NAME)
-
-run.jenkins:
-	docker exec -d -u jenkins ${CONTAINER_NAME} /usr/bin/java -jar /usr/share/jenkins/jenkins.war --httpPort=8080 --logfile=/var/log/jenkins/jenkins.log
+stop:
+	docker-compose stop
 
 logs:
 	docker exec $(CONTAINER_NAME) tail -f /var/log/jenkins/jenkins.log

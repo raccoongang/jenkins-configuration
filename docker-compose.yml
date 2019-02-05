@@ -1,14 +1,18 @@
 version: '3'
 
 services:
-  worker:
-    build: worker
-    ports:
-      - "2226-2300:22"
-    command: "/bin/bash service ssh start "
-    command: "/usr/sbin/sshd -D"
+    jenkins_master:
+        image: jenkins
+        ports:
+            - "80:8080"
+        depends_on:
+            - hawthorn_worker
+    hawthorn_worker:
+        image: jenkins_worker:hawthorn.master
+        ports:
+            - "2226-2300:22"
 
 networks:
-  default:
-    external:
-      name: net
+    default:
+        external:
+            name: net

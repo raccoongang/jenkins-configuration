@@ -1,6 +1,4 @@
-FROM edxraccoon/jenkins-worker
+FROM edxops/jenkins_worker:hawthorn.master
 
-#USER root 
-
-RUN service ssh start 
-CMD ["/bin/bash/"]
+RUN rm /edx/app/supervisor/conf.d/lms.conf && \
+    rm /edx/app/supervisor/conf.d/cms.conf
