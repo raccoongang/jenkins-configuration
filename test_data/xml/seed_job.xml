@@ -94,5 +94,17 @@ src/main/groovy</additionalClasspath>
     </javaposse.jobdsl.plugin.ExecuteDslScripts>
   </builders>
   <publishers/>
-  <buildWrappers/>
+  <buildWrappers>
+    <EnvInjectBuildWrapper plugin="envinject@2.1.6">
+        <info>
+            <propertiesContent>GHPRB_SECRET=/var/lib/jenkins/init-configs/ghprb-config-secret.yml
+            </propertiesContent>
+            <secureGroovyScript plugin="script-security@1.42">
+                <script/>
+                <sandbox>false</sandbox>
+            </secureGroovyScript>
+            <loadFilesFromMaster>false</loadFilesFromMaster>
+        </info>
+    </EnvInjectBuildWrapper>
+  </buildWrappers>
 </project>
