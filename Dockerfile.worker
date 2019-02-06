@@ -1,4 +1,11 @@
 FROM edxops/jenkins_worker:hawthorn.master
 
+RUN apt-get update && apt-get install -y default-jre
+
 RUN rm /edx/app/supervisor/conf.d/lms.conf && \
     rm /edx/app/supervisor/conf.d/cms.conf
+
+RUN mkdir /secrets && touch /secrets/js_rsa.pub
+RUN mkdir -p /var/lib/jenkins/.ssh && ln -s /secrets/jc_rsa.pub /var/lib/jenkins/.ssh/authorized_keys
+
+RUN useradd -d /var/lib/jenkins -s /bin/bash jenkins && chown -R jenkins:jenkins /var/lib/jenkins

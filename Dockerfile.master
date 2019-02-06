@@ -73,6 +73,7 @@ COPY src/main/groovy/1addJarsToClasspath.groovy \
     src/main/groovy/5addSeedJob.groovy \
     src/main/groovy/5configureEmailExtension.groovy \
     src/main/groovy/5createLoggers.groovy \
+    src/main/groovy/6connectWorkers.groovy \
     $JENKINS_HOME/init.groovy.d/
 
 # -- test shard #1

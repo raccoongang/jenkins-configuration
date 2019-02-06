@@ -5,12 +5,30 @@ services:
         image: jenkins
         ports:
             - "80:8080"
+        volumes:
+            - ${PWD}/test_data:/var/lib/jenkins/init-configs:ro
         depends_on:
-            - hawthorn_worker
-    hawthorn_worker:
+            - hawthorn_worker_1
+            - hawthorn_worker_2
+            - hawthorn_worker_3
+    hawthorn_worker_1:
         image: jenkins_worker:hawthorn.master
         ports:
             - "2226-2300:22"
+        volumes:
+            - ${PWD}/ssh/jc_rsa.pub:/secrets/jc_rsa.pub:ro
+    hawthorn_worker_2:
+        image: jenkins_worker:hawthorn.master
+        ports:
+            - "2226-2300:22"
+        volumes:
+            - ${PWD}/ssh/jc_rsa.pub:/secrets/jc_rsa.pub:ro
+    hawthorn_worker_3:
+        image: jenkins_worker:hawthorn.master
+        ports:
+            - "2226-2300:22"
+        volumes:
+            - ${PWD}/ssh/jc_rsa.pub:/secrets/jc_rsa.pub:ro
 
 networks:
     default:

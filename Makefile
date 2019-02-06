@@ -47,7 +47,7 @@ build-worker:
 	docker build -t jenkins_worker:hawthorn.master - < Dockerfile.worker
 
 run:
-	docker-compose up -d --scale hawthorn_worker=3
+	docker-compose up -d
 
 stop:
 	docker-compose stop
