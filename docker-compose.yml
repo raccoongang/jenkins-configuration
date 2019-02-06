@@ -2,6 +2,7 @@ version: '3'
 
 services:
     jenkins_master:
+        container_name: jenkins
         image: jenkins
         ports:
             - "80:8080"
