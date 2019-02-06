@@ -172,10 +172,10 @@ credentialConfig.each { newCredential ->
         case 'ssh':
             username = newCredential.username
             passphrase = newCredential.passphrase
-            sshKey = newCredential.sshKey
+            filePath = newCredential.path
 
             // Make sure username, sshKey are not empty
-            if (!username || !sshKey ) {
+            if (!username || !filePath ) {
                 logger.severe("Missing data for credential. Please ensure ssh " +
                               "entries in the credentials.yml file have a username and " +
                               "sshKey")
@@ -183,7 +183,11 @@ credentialConfig.each { newCredential ->
                 System.exit(1)
             }
 
-            privateKeySource = new BasicSSHUserPrivateKey.DirectEntryPrivateKeySource(sshKey)
+            // Create the full path to the secret file
+            fullFilePath = "${configPath}/${filePath}"
+
+
+            privateKeySource = new BasicSSHUserPrivateKey.FileOnMasterPrivateKeySource(fullFilePath)
             ssh = new BasicSSHUserPrivateKey(
                 scope,
                 id,

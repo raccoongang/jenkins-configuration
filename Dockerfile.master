@@ -19,10 +19,6 @@ RUN apt-get update -y \
     && apt-get install -y openssh-server
 
 RUN mkdir /var/run/sshd
-ADD ssh/jc_rsa.pub /root/.ssh/jc_rsa.pub
-RUN cat root/.ssh/jc_rsa.pub >> ~/.ssh/authorized_keys \
-    && chmod go-w ~/ && chmod 700 ~/.ssh && chmod 600 ~/.ssh/authorized_keys
-EXPOSE 22
 
 ARG JENKINS_VERSION
 ARG JENKINS_WAR_SOURCE
