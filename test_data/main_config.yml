@@ -8,6 +8,7 @@ MAIN:
         - "master-node"
         - "the-master-node"
         - "dsl-seed-runner"
+        - "github-status-worker"
     USAGE: 'EXCLUSIVE'
     QUIET_PERIOD: 10
     SCM_RETRY_COUNT: 15
