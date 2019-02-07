@@ -186,8 +186,10 @@ credentialConfig.each { newCredential ->
             // Create the full path to the secret file
             fullFilePath = "${configPath}/${filePath}"
 
+            key_text = new File(fullFilePath).text
 
-            privateKeySource = new BasicSSHUserPrivateKey.FileOnMasterPrivateKeySource(fullFilePath)
+
+            privateKeySource = new BasicSSHUserPrivateKey.DirectEntryPrivateKeySource(key_text)
             ssh = new BasicSSHUserPrivateKey(
                 scope,
                 id,
