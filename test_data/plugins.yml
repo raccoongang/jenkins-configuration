@@ -15,7 +15,7 @@
 - name: 'ansicolor'
   version: '0.4.3'
   group: 'org.jenkins-ci.plugins'
-- name: 'build-flow-toolbox'
+- name: 'build-flow-toolbox-plugin'
   version: '0.1'
   group: 'org.jenkins-ci.plugins'
 - name: 'build-flow-plugin'
