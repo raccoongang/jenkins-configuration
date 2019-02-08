@@ -1,0 +1,24 @@
+# Configure a Jenkins worker docker image
+# This has all the requirements to run test jobs,
+# but not the Jenkins Java app.
+
+- name: Configure instance(s)
+  hosts: jenkins_worker
+  become: True
+  gather_facts: True
+  vars:
+    jenkins_home: /var/lib/jenkins
+    mongo_enable_journal: False
+    serial_count: 1
+    platform_worker: True
+    COMMON_SECURITY_UPDATES: yes
+    SECURITY_UPGRADE_ON_ANSIBLE: true
+    MONGO_AUTH: false
+  serial: "{{ serial_count }}"
+  vars_files:
+    - roles/edxapp/defaults/main.yml
+    - roles/xqueue/defaults/main.yml
+    - roles/xserver/defaults/main.yml
+    - roles/forum/defaults/main.yml
+  roles:
+    - jenkins_worker
