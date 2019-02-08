@@ -7,7 +7,6 @@
   become: True
   gather_facts: True
   vars:
-    jenkins_home: /var/lib/jenkins
     mongo_enable_journal: False
     serial_count: 1
     platform_worker: True

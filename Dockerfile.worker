@@ -4,8 +4,12 @@ RUN rm /edx/app/supervisor/conf.d/lms.conf && \
     rm /edx/app/supervisor/conf.d/cms.conf
 
 RUN mkdir /secrets && touch /secrets/js_rsa.pub
+RUN mkdir -p /home/jenkins/.ssh && touch /home/jenkins/.ssh/authorized_keys
 
 COPY jenkins_worker_docker.yml /edx/app/edx_ansible/edx_ansible/playbooks/
-RUN /edx/app/edx_ansible/venvs/edx_ansible/bin/ansible-playbook -c local -i ",jenkins_worker" /edx/app/edx_ansible/edx_ansible/playbooks/jenkins_worker_docker.yml
 
-RUN mkdir -p /var/lib/jenkins/.ssh && ln -s /secrets/jc_rsa.pub /var/lib/jenkins/.ssh/authorized_keys
+RUN /edx/app/edx_ansible/venvs/edx_ansible/bin/ansible-playbook -c local \
+    -i ",jenkins_worker" /edx/app/edx_ansible/edx_ansible/playbooks/jenkins_worker_docker.yml || true
+
+RUN rm /home/jenkins/.ssh/authorized_keys && ln -s /secrets/jc_rsa.pub /home/jenkins/.ssh/authorized_keys && \
+    chown -R jenkins:jenkins /home/jenkins

@@ -44,7 +44,7 @@ build-master:
 		--target=$(TEST_SHARD) .
 
 build-worker:
-	docker build -t jenkins_worker:hawthorn.master - < Dockerfile.worker
+	docker build -f Dockerfile.worker -t jenkins_worker:hawthorn.master .
 
 run:
 	docker-compose up -d
