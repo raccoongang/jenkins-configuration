@@ -6,6 +6,6 @@ RUN rm /edx/app/supervisor/conf.d/lms.conf && \
 RUN mkdir /secrets && touch /secrets/js_rsa.pub
 
 COPY jenkins_worker_docker.yml /edx/app/edx_ansible/edx_ansible/playbooks/
-RUN ansible-playbook -c local -i ",jenkins_worker" /edx/app/edx_ansible/edx_ansible/playbooks/jenkins_worker_docker.yml
+RUN /edx/app/edx_ansible/venvs/edx_ansible/bin/ansible-playbook -c local -i ",jenkins_worker" /edx/app/edx_ansible/edx_ansible/playbooks/jenkins_worker_docker.yml
 
 RUN mkdir -p /var/lib/jenkins/.ssh && ln -s /secrets/jc_rsa.pub /var/lib/jenkins/.ssh/authorized_keys
