@@ -21,7 +21,7 @@ GLOBAL_PROPERTIES:
           VALUE: 'WORLD'
     TOOL_LOCATIONS:
 LOCATION:
-    URL: 'http://localhost:8080/sample'
+    URL: 'http://jenkins-ci.raccoongang.com'
     ADMIN_EMAIL: 'admin@localhost'
 SHELL:
     EXECUTABLE: '/bin/bash'

@@ -3,6 +3,7 @@ SERVER_API_URL: 'https://api.github.com'
 ACCESS_TOKEN: '9ff3874d9e27254b3cdfc25cf081d350ab450391'
 ADMIN_LIST:
     - 'svic'
+    - 'Alexei-Kornienko'
     - 'admin2'
 REQUEST_TESTING_PHRASE: 'retest this PR please'
 WHITE_LIST_PHRASE: 'add this github user'
@@ -23,12 +24,12 @@ DISPLAY_ERRORS_DOWNSTREAM: true
 GITHUB_AUTH: 'test'
 CANCEL_BUILD_ON_UPDATE: true
 SIMPLE_STATUS: 'simple status'
-PUBLISH_JENKINS_URL: 'jenkins-ci.raccoongang.com'
+PUBLISH_JENKINS_URL: 'http://jenkins-ci.raccoongang.com'
 BUILD_LOG_LINES_TO_DISPLAY: 25
 RESULT_MESSAGES:
     - STATUS: 'pending'
       MESSAGE: 'this is pending'
     - STATUS: 'failure'
       MESSAGE: 'this was a failure'
-CREDENTIALS_ID: 'secretFile1'
+CREDENTIALS_ID: 'github'
 SHARED_SECRET: ''
