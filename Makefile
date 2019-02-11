@@ -46,8 +46,12 @@ build-master:
 build-worker:
 	docker build -f Dockerfile.worker -t jenkins_worker:hawthorn.master .
 
-run:
+run: edx
 	docker-compose up -d
+
+edx:
+	# local copy of edx repository that is mounted into worker containers to save space and network traffic and avoid multiple clones
+	git clone https://github.com/edx/edx-platform.git edx
 
 stop:
 	docker-compose stop
