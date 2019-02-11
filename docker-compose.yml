@@ -17,21 +17,21 @@ services:
         ports:
             - "2226-2300:22"
         volumes:
-            - ${PWD}/test_data/ssh/jc_rsa.pub:/secrets/jc_rsa.pub:ro
+            - ${PWD}/test_data/ssh:/secrets:ro
             - ${PWD}/edx:/home/jenkins/edx-platform-clone:ro
     hawthorn_worker_2:
         image: jenkins_worker:hawthorn.master
         ports:
             - "2226-2300:22"
         volumes:
-            - ${PWD}/test_data/ssh/jc_rsa.pub:/secrets/jc_rsa.pub:ro
+            - ${PWD}/test_data/ssh:/secrets:ro
             - ${PWD}/edx:/home/jenkins/edx-platform-clone:ro
     hawthorn_worker_3:
         image: jenkins_worker:hawthorn.master
         ports:
             - "2226-2300:22"
         volumes:
-            - ${PWD}/test_data/ssh/jc_rsa.pub:/secrets/jc_rsa.pub:ro
+            - ${PWD}/test_data/ssh:/secrets:ro
             - ${PWD}/edx:/home/jenkins/edx-platform-clone:ro
 
 networks:

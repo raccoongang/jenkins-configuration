@@ -11,5 +11,7 @@ COPY jenkins_worker_docker.yml /edx/app/edx_ansible/edx_ansible/playbooks/
 RUN /edx/app/edx_ansible/venvs/edx_ansible/bin/ansible-playbook -c local \
     -i ",jenkins_worker" /edx/app/edx_ansible/edx_ansible/playbooks/jenkins_worker_docker.yml || true
 
-RUN rm /home/jenkins/.ssh/authorized_keys && ln -s /secrets/jc_rsa.pub /home/jenkins/.ssh/authorized_keys && \
-    chown -R jenkins:jenkins /home/jenkins
+RUN rm /home/jenkins/.ssh/authorized_keys \
+    && ln -s /secrets/jc_rsa.pub /home/jenkins/.ssh/authorized_keys \
+    && ln -s /secrets/jc_rsa /home/jenkins/.ssh/id_rsa \
+    && chown -R jenkins:jenkins /home/jenkins
