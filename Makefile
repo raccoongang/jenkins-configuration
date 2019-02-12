@@ -43,7 +43,7 @@ build-master:
 		--build-arg=JENKINS_WAR_SOURCE=$(JENKINS_WAR_SOURCE) \
 		--target=$(TEST_SHARD) .
 
-build-worker:
+build-worker: edx-configuration
 	docker build -f Dockerfile.worker -t jenkins_worker:hawthorn.master .
 
 run: edx
@@ -52,6 +52,10 @@ run: edx
 edx:
 	# local copy of edx repository that is mounted into worker containers to save space and network traffic and avoid multiple clones
 	git clone https://github.com/edx/edx-platform.git edx
+
+edx-configuration:
+	git clone https://github.com/raccoongang/configuration.git edx-configuration
+	cd edx-configuration && git checkout raccoon/jenkins_worker
 
 stop:
 	docker-compose stop
