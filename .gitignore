@@ -20,3 +20,5 @@ utils/*
 # ignore artifacts from e2e tests
 geckodriver.log
 .venv
+
+edx/
