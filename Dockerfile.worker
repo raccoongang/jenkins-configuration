@@ -17,3 +17,5 @@ RUN rm /home/jenkins/.ssh/authorized_keys \
     && ln -s /secrets/jc_rsa.pub /home/jenkins/.ssh/authorized_keys \
     && ln -s /secrets/jc_rsa /home/jenkins/.ssh/id_rsa \
     && chown -R jenkins:jenkins /home/jenkins
+
+RUN pip install psutil
