@@ -17,10 +17,3 @@ RUN rm /home/jenkins/.ssh/authorized_keys \
     && ln -s /secrets/jc_rsa.pub /home/jenkins/.ssh/authorized_keys \
     && ln -s /secrets/jc_rsa /home/jenkins/.ssh/id_rsa \
     && chown -R jenkins:jenkins /home/jenkins
-
-WORKDIR /home/jenkins
-USER jenkins
-ENV LANG=en_US.UTF-8
-ENV LANGUAGE=en_US:en
-ENV LC_CTYPE=en_US.UTF-8
-ENV LC_ALL=en_US.UTF-8

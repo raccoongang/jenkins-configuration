@@ -95,6 +95,8 @@ COPY src/main/groovy/4configureSAML.groovy \
     $JENKINS_HOME/init.groovy.d/
 RUN chown -R jenkins:jenkins $JENKINS_HOME /var/log/jenkins
 
+ENV LANG C.UTF-8
+ENV LC_ALL C.UTF-8
 USER jenkins
 
 CMD ["/usr/bin/java", "-jar", "/usr/share/jenkins/jenkins.war", "--httpPort=8080", "--logfile=/var/log/jenkins/jenkins.log"]
