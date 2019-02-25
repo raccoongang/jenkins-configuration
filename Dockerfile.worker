@@ -9,10 +9,6 @@ COPY edx-configuration /edx/app/edx_ansible/edx_ansible
 
 COPY jenkins_worker_docker.yml /edx/app/edx_ansible/edx_ansible/playbooks/
 
-RUN apt-get update && apt-get install -y python3-pip
-RUN ln -s /usr/bin/python3 /usr/local/bin/python
-RUN mv /usr/local/bin/pip /usr/local/bin/_pip && ln -s /usr/bin/pip3 /usr/local/bin/pip
-
 RUN /edx/app/supervisor/venvs/supervisor/bin/supervisord --configuration /edx/app/supervisor/supervisord.conf \
     && /edx/app/edx_ansible/venvs/edx_ansible/bin/ansible-playbook -c local \
     -i ",jenkins_worker" /edx/app/edx_ansible/edx_ansible/playbooks/jenkins_worker_docker.yml
@@ -22,4 +18,9 @@ RUN rm /home/jenkins/.ssh/authorized_keys \
     && ln -s /secrets/jc_rsa /home/jenkins/.ssh/id_rsa \
     && chown -R jenkins:jenkins /home/jenkins
 
-#RUN pip install --upgrade pip && pip install psutil
+WORKDIR /home/jenkins
+USER jenkins
+ENV LANG=en_US.UTF-8
+ENV LANGUAGE=en_US:en
+ENV LC_CTYPE=en_US.UTF-8
+ENV LC_ALL=en_US.UTF-8

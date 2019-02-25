@@ -7,6 +7,7 @@
   become: True
   gather_facts: True
   vars:
+    jenkins_edx_platform_version: "open-release/hawthorn.master"
     mongo_enable_journal: False
     serial_count: 1
     platform_worker: True
