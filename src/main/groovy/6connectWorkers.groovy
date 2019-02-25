@@ -31,6 +31,13 @@ import hudson.plugins.sshslaves.verifiers.*
 
 SshHostKeyVerificationStrategy hostKeyVerificationStrategy = new NonVerifyingKeyVerificationStrategy()
 
+list = new LinkedList()
+list.add(new EnvironmentVariablesNodeProperty([
+    new EnvironmentVariablesNodeProperty.Entry("LANG", "C.UTF-8"),
+    new EnvironmentVariablesNodeProperty.Entry("LC_ALL", "C.UTF-8")
+]))
+
+
 workerConfigs.each { worker ->
     // There is a constructor that also takes a list of properties (env vars) at the end, but haven't needed that yet
     DumbSlave dumb = new DumbSlave(
@@ -53,7 +60,8 @@ workerConfigs.each { worker ->
                 (Integer)null, // The number of seconds to wait between retries
                 hostKeyVerificationStrategy // Host Key Verification Strategy
             ),  // Launch strategy
-            RetentionStrategy.INSTANCE) // Is the "Availability" field and INSTANCE means "Always"
+            RetentionStrategy.INSTANCE, // Is the "Availability" field and INSTANCE means "Always"
+            list) // Env vars set to worker nodes
 
     jenkins.addNode(dumb)
 }
