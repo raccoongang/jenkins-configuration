@@ -43,7 +43,7 @@
   version: '1.12.1'
   group: 'org.jenkins-ci.plugins'
 - name: 'xunit'
-  version: '2.2.5'
+  version: '1.104'
   group: 'org.jenkins-ci.plugins'
 - name: 'ssh-agent'
   version: '1.5'
